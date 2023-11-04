@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     "courses.apps.CoursesConfig",
     "students.apps.StudentsConfig",
     'embed_video',
-    "debug_toolbar"
+    "debug_toolbar",
+    'redisboard',
 ]
+
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -114,12 +116,23 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Adding memcached to our app
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
         'LOCATION': '127.0.0.1:11211',
         }
     }
+
+
+#Using Redis caching backend 
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+#         'LOCATION': 'redis://127.0.0.1:6379',
+#         }
+#     }
 
 
 # Internationalization
