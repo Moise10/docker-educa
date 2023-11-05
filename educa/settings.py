@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'embed_video',
     "debug_toolbar",
     'redisboard',
+    'rest_framework',
 ]
 
 
@@ -162,6 +163,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 
+
+REST_FRAMEWORK = {
+'DEFAULT_PERMISSION_CLASSES': [
+'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+]
+}
 
 INTERNAL_IPS = [
 '127.0.0.1',
